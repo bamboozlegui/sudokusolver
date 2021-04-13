@@ -25,7 +25,6 @@ void printTable(int grid[][9]) {
     printf("\n\n");
 }
 
-// checks if there's space available
 int checkForEmptySpace(int grid[][9], int* row, int* col) {
     for(int i = 0; i < 9; ++i) {
         for(int j = 0; j < 9; ++j) {
@@ -40,7 +39,7 @@ int checkForEmptySpace(int grid[][9], int* row, int* col) {
     return 0;
 }
 
-// check row and collumn for collisions
+
 int checkRowAndCol(int grid[][9], int row, int col, int num) {
     for(int i = 0; i < 9; ++i) {
         if( (grid[row][i] == num) || (grid[i][col] == num) )
@@ -50,7 +49,7 @@ int checkRowAndCol(int grid[][9], int row, int col, int num) {
     return 1;
 }
 
-// check 3x3 subgrid for collisions
+
 int checkSubGrid(int grid[][9], int row, int col, int num) {
     int r,c;
     r = row - (row % 3);
@@ -68,7 +67,7 @@ int checkSubGrid(int grid[][9], int row, int col, int num) {
 }
 
 int solver(int grid[][9], int row, int col) {
-    // if space check returns 0, sudoku has been solved 
+    // if space check returns 0, sudoku has been solved
     if(checkForEmptySpace(grid, &row, &col) == 0) {
         return 1;
     }
